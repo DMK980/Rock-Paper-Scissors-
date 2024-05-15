@@ -7,17 +7,15 @@
     justify-content: space-between;
     align-items: center;
     max-width: 700px;
+    min-width: 200px;
     width: 80%;
     font-size: 0.75rem;
 }
-.text{
-    font-weight: var(--Font-weight2);
-    columns: fit-content 3;
-}
 .textheading{
+    font-weight: var(--Font-weight2);
     height: fit-content;
     padding: 0;
-    line-height: 15px;
+    line-height: 19px;
 }
 .score{
     display: flex;
