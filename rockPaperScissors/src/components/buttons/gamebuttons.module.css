@@ -1,0 +1,70 @@
+.svg{
+    border-radius: 50%;
+    padding: 1rem;
+    background-color: lightgray;
+    overflow:visible;
+    object-fit:cover;
+    width: 100%;
+}
+.rocksvg{
+    width: 70px;
+}
+
+/* BACKGROUNG for buttons */
+.btncontainer{
+    border-radius: 50%;
+    padding: 0.75rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit:fill;
+    border: none;
+    cursor: pointer;
+}
+.btncontainer:hover{
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+.btncontainer:active{
+    transform: translateY(4px);
+}
+
+/* Indivisual styling for the ROCK PAPER SCISSORS SVGS */
+.paper{
+    background-image: var(--Paper-Gradient);
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    justify-self: center;
+    align-self: center;
+}
+.rock{
+    background-image: var(--Rock-Gradient);
+    grid-column: 3 / 4;
+    grid-row: 5/7;
+    justify-self: center;
+    align-self: center;
+}
+.scissors{
+    background-image: var(--Scissors-Gradient);
+    grid-column: 4 / 6;
+    grid-row: 1 / 3;
+    justify-self: center;
+    align-self: center; 
+}
+@media screen and (min-width:424px) {
+    .svg{
+        width: 100px;
+    }
+    .btncontainer{
+        padding: 1rem;
+    }
+}
+@media screen and (min-width:1024px) {
+    .svg{
+        width: 150px;
+    }
+    .btncontainer{
+        padding: 1.5rem;
+    }
+}
