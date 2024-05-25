@@ -1,7 +1,7 @@
 /* Mobile first approach */
 .header{
     border: 2px solid var(--Header-Outline);
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 0.85rem;
     display: flex;
     justify-content: space-between;
@@ -10,10 +10,10 @@
     min-width: 200px;
     width: 80%;
     font-size: 0.75rem;
+    margin-top: 2rem;
 }
 .textheading{
     font-weight: var(--Font-weight2);
-    height: fit-content;
     padding: 0;
     line-height: 19px;
 }

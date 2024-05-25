@@ -1,15 +1,14 @@
 .svg{
     border-radius: 50%;
-    padding: 1rem;
+    padding: 1.5rem;
     background-color: lightgray;
     overflow:visible;
-    object-fit:cover;
+    object-fit:fill;
     width: 100%;
 }
 .rocksvg{
-    width: 70px;
+    width: 105px;
 }
-
 /* BACKGROUNG for buttons */
 .btncontainer{
     border-radius: 50%;
@@ -41,9 +40,9 @@
 .rock{
     background-image: var(--Rock-Gradient);
     grid-column: 3 / 4;
-    grid-row: 5/7;
+    grid-row: 3/5;
     justify-self: center;
-    align-self: center;
+    align-self: end;
 }
 .scissors{
     background-image: var(--Scissors-Gradient);
@@ -54,7 +53,7 @@
 }
 @media screen and (min-width:424px) {
     .svg{
-        width: 100px;
+        width: 130px;
     }
     .btncontainer{
         padding: 1rem;
