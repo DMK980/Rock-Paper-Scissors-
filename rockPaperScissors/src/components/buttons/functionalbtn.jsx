@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import functionalbtn from "./functionalbtn.module.css"
-import { VisibleContext } from '../../App'
+import { store } from '../../state'
 
 const Functionalbtn = ({text, backgroundcolor,color,alignself,fontWeight}) => {
-    const [visiblemodule,setVisiblemodule] = useContext(VisibleContext)
+
+    const [state,dispatch] = useContext(store)
     const styles = {
         backgroundColor : backgroundcolor ? backgroundcolor : "transparent",
         color : color ? color : "white",
@@ -12,7 +13,11 @@ const Functionalbtn = ({text, backgroundcolor,color,alignself,fontWeight}) => {
     }
     const clicked = ()=>{
       if (text == "RULES"){
-        setVisiblemodule("containerVisible")
+        dispatch({type:"MODULEVISIBILITY"})
+      }
+      if (text == "PLAY AGAIN"){
+        dispatch({type:"RPSVISIBILITY"})
+        dispatch({type:"RESULTSVISIBILITY"})
       }
     }
   return ( 

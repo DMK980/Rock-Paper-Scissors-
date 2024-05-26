@@ -1,33 +1,35 @@
-import React,{useState,createContext} from 'react'
-import Header from './components/Header/header'
+// hooks
+import React,{useState,createContext,useReducer} from 'react'
+// css
 import app from "./App.module.css"
+// components
+import Header from './components/Header/header'
 import RockPaperScissors from './components/RockPaperScissors/rps'
 import Functionalbtn from './components/buttons/functionalbtn'
 import Rules from './components/rules/Rules'
 import Results from './components/results/Results'
-
-export const VisibleContext = createContext()
-export const Userpick = createContext()
+// state
+import { reducer,initialState } from './state'
+import { store } from './state'
 
 const App = () => {
-  const [score,setScore] = useState(-1)
-  const [visiblemodule,setVisiblemodule] = useState("containerHidden")
-  const [visiblerps,setVisiblerps] = useState("maincontainer")
-  const [winstatus,setWinstatus] = useState("YOU WIN")
-  const [userpick,setUserpick] = useState("paper")
-  const [comppick,setComppick] = useState("rock")
+  const [state,dispatch] = useReducer(reducer,initialState)
   return (
     <main className={app.mainpage}>
-      <Header score = {score}/>
-      <Userpick.Provider value={[[userpick,setUserpick],[visiblerps,setVisiblerps],[comppick,setComppick],[winstatus,setWinstatus],[score,setScore]]}>
+      <store.Provider value={[state,dispatch]}>
+        <Header/>
         <RockPaperScissors/>
         <Results/>
-      </Userpick.Provider>
-      <VisibleContext.Provider value={[visiblemodule,setVisiblemodule]}>
-        <Functionalbtn text="PLAY AGAIN"backgroundcolor="white"color="hsl(229, 25%, 31%)"alignself="center"fontWeight="700"/>
+        <Functionalbtn 
+          text="PLAY AGAIN"
+          backgroundcolor="white"
+          color="hsl(229, 25%, 31%)"
+          alignself="center"
+          fontWeight="700"
+        />
         <Functionalbtn text="RULES"/>
         <Rules/>
-      </VisibleContext.Provider>
+      </store.Provider>
     </main>
   )
 }

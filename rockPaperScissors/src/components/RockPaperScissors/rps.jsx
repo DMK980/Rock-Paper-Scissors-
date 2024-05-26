@@ -2,10 +2,11 @@ import React, { useContext } from 'react'
 import rockpaperscissors from "./rockpaperscissors.module.css"
 import triangle from "../../assets/images/bg-triangle.svg"
 import Gamebuttons from '../buttons/Gamebuttons'
-import { Userpick } from '../../App'
+import { store } from '../../state'
 
 const RockPaperScissors = () => {
-  const [visiblerps,setVisiblerps] = useContext(Userpick)[1]
+  const [state,dispatch] = useContext(store)
+  const visiblerps = state.visiblerps
   return (
     <section className={rockpaperscissors[visiblerps]}>
         {/* triangle svg */}

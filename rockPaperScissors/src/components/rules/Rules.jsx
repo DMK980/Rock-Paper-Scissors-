@@ -1,13 +1,15 @@
 import React, { useContext } from 'react'
 import rules from "../../assets/images/image-rules.svg"
 import rulescss from "./rulescss.module.css"
-import { VisibleContext } from '../../App'
+import { store } from '../../state'
 
 const Rules = () => {
-    const [visiblemodule,setVisiblemodule] = useContext(VisibleContext)
+    const [state,dispatch] = useContext(store)
+
+    const visiblemodule = state.visiblemodule
 
     const clicked = ()=>{
-        setVisiblemodule("containerHidden")
+        dispatch({type:"MODULEVISIBILITY"})
     }
   return (
     <span className={rulescss[visiblemodule]}>

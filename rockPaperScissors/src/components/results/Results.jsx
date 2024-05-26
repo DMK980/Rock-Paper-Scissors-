@@ -1,35 +1,32 @@
 import React, { useContext, useEffect } from 'react'
 import results from "./results.module.css"
 import Gamebuttons from '../buttons/Gamebuttons';
-import { Userpick } from '../../App';
+import { store } from '../../state';
 
 const Results = () => {
-
-    const [winstatus,setWinstatus]= useContext(Userpick)[3]
-    const comppick= useContext(Userpick)[2][0]
-    const userpick= useContext(Userpick)[0][0]
-    const [score,setScore] = useContext(Userpick)[4]
+    const [state,dispatch] = useContext(store)
+    
+    let userpick = state.userpick
+    let comppick = state.comppick
+    let winstatus = state.winstatus
+    let visibleresults = state.visibleresults
+    console.log(userpick)
+    console.log(comppick)
 
     useEffect(() => {
         // draw
         if (userpick == comppick){
-            setWinstatus("DRAW")
+            dispatch({type:"WINSTATUS",payload:"DRAW"})
         }
         // lose 
         if (userpick == "paper" & comppick =="scissors" | userpick == "rock" & comppick == "paper" | userpick == "scissors" & comppick == "rock"){
-            setWinstatus("YOU LOSE")
-            if (score > -1){
-            let subtractscore = score - 1 == -1 ? 0 : score -1 ;
-            setScore(subtractscore)   
-            }
+            dispatch({type:"WINSTATUS",payload:"YOU LOSE"})
+            dispatch({type:"MINUS"})     
         }
         // Win
         if (userpick == "paper" & comppick =="rock" | userpick == "rock" & comppick == "scissors" | userpick == "scissors" & comppick == "paper"){
-            setWinstatus("YOU WIN")
-            if (score >= -1){
-                let addscore = score + 1 == -1 ? 0 : score + 1
-                setScore(addscore)   
-                }
+            dispatch({type:"WINSTATUS",payload:"YOU WIN"})
+            dispatch({type:"ADD"})   
         }
         return () => {
             
@@ -37,7 +34,7 @@ const Results = () => {
     }, [comppick,userpick]);
 
   return (
-    <section className={results.maincontainer}>
+    <section className={results[visibleresults]}>
         <div className={results.topsection}>
             <div className={`${results.leftsidecontainer} ${results.symbolcontainers}`}>
                 <div className={`${results.usersymbol} ${results.symbols}`}>
