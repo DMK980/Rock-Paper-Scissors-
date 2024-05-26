@@ -5,6 +5,7 @@
     overflow:visible;
     object-fit:fill;
     width: 100%;
+    box-shadow: inset -1px 3px 2px 2px darkgrey;
 }
 .rocksvg{
     width: 105px;

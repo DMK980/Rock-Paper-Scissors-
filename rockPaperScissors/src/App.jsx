@@ -10,19 +10,21 @@ export const VisibleContext = createContext()
 export const Userpick = createContext()
 
 const App = () => {
-  const [score,setScore] = useState(0)
+  const [score,setScore] = useState(-1)
   const [visiblemodule,setVisiblemodule] = useState("containerHidden")
-  const [visiblerps,setVisiblerps] = useState("maincontainerHidden")
-  const [winstatus,setWinstatus] = useState("win")
-  const [userpick,setUserpick] = useState("")
+  const [visiblerps,setVisiblerps] = useState("maincontainer")
+  const [winstatus,setWinstatus] = useState("YOU WIN")
+  const [userpick,setUserpick] = useState("paper")
+  const [comppick,setComppick] = useState("rock")
   return (
     <main className={app.mainpage}>
       <Header score = {score}/>
-      <Userpick.Provider value={[[userpick,setUserpick],[visiblerps,setVisiblerps]]}>
+      <Userpick.Provider value={[[userpick,setUserpick],[visiblerps,setVisiblerps],[comppick,setComppick],[winstatus,setWinstatus],[score,setScore]]}>
         <RockPaperScissors/>
+        <Results/>
       </Userpick.Provider>
-      <Results winorlose={winstatus}/>
       <VisibleContext.Provider value={[visiblemodule,setVisiblemodule]}>
+        <Functionalbtn text="PLAY AGAIN"backgroundcolor="white"color="hsl(229, 25%, 31%)"alignself="center"fontWeight="700"/>
         <Functionalbtn text="RULES"/>
         <Rules/>
       </VisibleContext.Provider>
