@@ -11,7 +11,7 @@ const RockPaperScissors = () => {
     <section className={rockpaperscissors[visiblerps]}>
         {/* triangle svg */}
         <div className={rockpaperscissors.trianglecontainer}>
-            <img className={rockpaperscissors.trianglesvg}src={triangle}alt='triangle background'/>
+            <img className={rockpaperscissors.trianglesvg}src={triangle}alt='background image connecting the game buttons'/>
         </div>
         {/* paper svg */} 
         <Gamebuttons symbol="paper" bgcolor="lightgrey"/>

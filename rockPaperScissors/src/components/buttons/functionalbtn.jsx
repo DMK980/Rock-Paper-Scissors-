@@ -25,6 +25,7 @@ const Functionalbtn = ({text, backgroundcolor,color,alignself,fontWeight}) => {
             className={functionalbtn.button} 
             style={styles}
             onClick={clicked}
+            aria-label={`${text} button`}
     >
         {text}
     </button>

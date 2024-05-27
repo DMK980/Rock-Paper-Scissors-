@@ -52,10 +52,11 @@ const Gamebuttons = ({symbol,clickable = true}) => {
     <button type="button"
             className={`${gamebuttons[symbol]} ${gamebuttons.btncontainer}`}
             onClick={clicked}
+            aria-label={`button to select ${symbol}`}
     >
         <img className={`${gamebuttons[`${symbol}svg`]} ${gamebuttons.svg}`}
              src={selection} 
-             alt={`${symbol} svg`}
+             alt={`image of a ${symbol}`}
         />
     </button>
   ) 

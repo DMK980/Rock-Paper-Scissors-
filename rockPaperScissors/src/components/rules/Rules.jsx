@@ -15,10 +15,10 @@ const Rules = () => {
     <span className={rulescss[visiblemodule]}>
         <h1 className={rulescss.heading}>
             RULES 
-            <button className={rulescss.buttontop}type='button'onClick={clicked}>X</button>
+            <button id="rule-module-close"aria-label="closes the rules module"className={rulescss.buttontop}type='button'onClick={clicked}>X</button>
         </h1>
-        <img className={rulescss.image}src={rules}alt="rules module"/>
-        <button className={rulescss.button}type='button'onClick={clicked}>X</button>
+        <img className={rulescss.image}src={rules}alt="a module that shows the rules"/>
+        <button aria-labelledby="rule-module-close"className={rulescss.button}type='button'onClick={clicked}>X</button>
     </span>
   )
 }
