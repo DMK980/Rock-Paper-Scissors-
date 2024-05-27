@@ -9,23 +9,6 @@ const Results = () => {
     let comppick = state.comppick
     let winstatus = state.winstatus
     let visibleresults = state.visibleresults
-    useEffect(() => {
-        // draw
-        if (userpick == comppick){
-            dispatch({type:"WINSTATUS",payload:"DRAW"})
-        }
-        // lose 
-        if (userpick == "paper" & comppick =="scissors" | userpick == "rock" & comppick == "paper" | userpick == "scissors" & comppick == "rock"){
-            dispatch({type:"WINSTATUS",payload:"YOU LOSE"})      
-        }
-        // Win
-        if (userpick == "paper" & comppick =="rock" | userpick == "rock" & comppick == "scissors" | userpick == "scissors" & comppick == "paper"){
-            dispatch({type:"WINSTATUS",payload:"YOU WIN"})
-        }
-        return () => {
-            
-        };
-    }, [userpick,comppick]);
 
   return (
     <section className={results[visibleresults]}>

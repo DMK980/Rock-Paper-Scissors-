@@ -1,7 +1,7 @@
 import { createContext } from "react"
 // Iniial State
 export const initialState = {
-    score : -1,
+    score : 0,
     visiblemodule : "containerHidden",
     visiblerps : "maincontainer",
     visibleresults : "maincontainerHidden",
@@ -17,15 +17,9 @@ export const reducer = (state,action) => {
     switch(action.type){
         // Score logic
       case "ADD":
-        return {
-            ...state,
-            score: action.payload
-        }
+        return {...state,score: action.payload}
       case "MINUS":
-        return {
-            ...state,
-            score: action.payload
-        }
+        return {...state,score: action.payload}
         // Rules Module visibility logic
       case "MODULEVISIBILITY":
         if (state.visiblemodule == "containerHidden"){
@@ -67,22 +61,13 @@ export const reducer = (state,action) => {
         }
         // Win status update win lose or draw
       case "WINSTATUS":
-        return {
-            ...state,
-            winstatus : action.payload
-        }
+        return {...state,winstatus : action.payload}
         // User selects 
       case "USERPICK":
-        return {
-            ...state,
-            userpick : action.payload
-        }
+        return {...state,userpick : action.payload}
         // computer selects
       case "COMPPICK":
-        return {
-            ...state,
-            comppick : action.payload
-        }
+        return {...state,comppick : action.payload}
     }
   }
 

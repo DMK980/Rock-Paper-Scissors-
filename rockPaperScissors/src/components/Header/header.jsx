@@ -4,25 +4,7 @@ import { store } from '../../state'
 
 const Header = () => {
   let [state,dispatch] = useContext(store)
-  let  winstatus = state.winstatus;
   let score = state.score;
-  useEffect(() => {
-    // win
-    if (winstatus == "YOU WIN"){
-      if(score >= -1){
-          dispatch({type:"ADD",payload:++score})
-      }
-    }
-    // lose 
-    if (winstatus == "YOU LOSE"){
-        if(score > 0){
-          dispatch({type:"MINUS",payload:--score})
-        }      
-    }
-    return () => {
-        
-    };
-  }, [winstatus]);
 
   return (
     <header className={header.header}>

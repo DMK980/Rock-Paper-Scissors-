@@ -9,6 +9,7 @@
   --Rock-Gradient: radial-gradient(circle,hsl(349, 71%, 52%), hsl(349, 70%, 56%));
   --Lizard-Gradient: radial-gradient(circle,hsl(261, 73%, 60%), hsl(261, 72%, 63%));
   --Cyan: radial-gradient(circle,hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  
   --Dark-Text: hsl(229, 25%, 31%);
   --Score-Text: hsl(229, 64%, 46%);
   --Header-Outline: hsl(217, 16%, 45%);
@@ -29,10 +30,7 @@
   margin: 0;
   padding: 0;
 }
-p{
-  padding: 0;
-  margin: 0;
-}
+
 body {
   min-height: 100vh;
   background-color: var(--background-color);

@@ -8,14 +8,40 @@ import { store } from '../../state'
 const Gamebuttons = ({symbol,clickable = true}) => {
 
   const [state,dispatch] = useContext(store)
+  let userpick = state.userpick
+  let comppick = state.comppick
+  let score = state.score
 
   // logic to make component reusable across the application
   const selection = symbol == "paper" ? papersvg : symbol == "rock" ? rocksvg : scissorssvg;
-  
+
+  // main game logic
   const clicked = ()=>{
     if (clickable){
       let symbols = ["paper","scissors","rock"]
       let pick = symbols[Math.floor(Math.random()*3)]
+
+      // Winstatus update
+      // draw
+      if (userpick == comppick){
+        dispatch({type:"WINSTATUS",payload:"DRAW"})
+      }
+      // lose 
+      if (userpick == "paper" & comppick =="scissors" | userpick == "rock" & comppick == "paper" | userpick == "scissors" & comppick == "rock"){
+          dispatch({type:"WINSTATUS",payload:"YOU LOSE"})   
+          // reduce score 
+          if(score > 0){
+            dispatch({type:"MINUS",payload:--score})
+          }   
+      }
+      // Win
+      if (userpick == "paper" & comppick =="rock" | userpick == "rock" & comppick == "scissors" | userpick == "scissors" & comppick == "paper"){
+          dispatch({type:"WINSTATUS",payload:"YOU WIN"})
+          // add score
+          if(score >= -1){
+            dispatch({type:"ADD",payload:++score})
+          }
+      }
       dispatch({type:"USERPICK",payload:symbol})
       dispatch({type:"COMPPICK",payload:pick})
       dispatch({type:"RPSVISIBILITY"})
