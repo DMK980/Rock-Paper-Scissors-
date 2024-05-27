@@ -5,14 +5,10 @@ import { store } from '../../state';
 
 const Results = () => {
     const [state,dispatch] = useContext(store)
-    
     let userpick = state.userpick
     let comppick = state.comppick
     let winstatus = state.winstatus
     let visibleresults = state.visibleresults
-    console.log(userpick)
-    console.log(comppick)
-
     useEffect(() => {
         // draw
         if (userpick == comppick){
@@ -20,18 +16,16 @@ const Results = () => {
         }
         // lose 
         if (userpick == "paper" & comppick =="scissors" | userpick == "rock" & comppick == "paper" | userpick == "scissors" & comppick == "rock"){
-            dispatch({type:"WINSTATUS",payload:"YOU LOSE"})
-            dispatch({type:"MINUS"})     
+            dispatch({type:"WINSTATUS",payload:"YOU LOSE"})      
         }
         // Win
         if (userpick == "paper" & comppick =="rock" | userpick == "rock" & comppick == "scissors" | userpick == "scissors" & comppick == "paper"){
             dispatch({type:"WINSTATUS",payload:"YOU WIN"})
-            dispatch({type:"ADD"})   
         }
         return () => {
             
         };
-    }, [comppick,userpick]);
+    }, [userpick,comppick]);
 
   return (
     <section className={results[visibleresults]}>

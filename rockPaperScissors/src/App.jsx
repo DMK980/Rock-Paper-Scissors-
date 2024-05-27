@@ -1,5 +1,5 @@
 // hooks
-import React,{useState,createContext,useReducer} from 'react'
+import React,{useReducer} from 'react'
 // css
 import app from "./App.module.css"
 // components
@@ -10,7 +10,7 @@ import Rules from './components/rules/Rules'
 import Results from './components/results/Results'
 // state
 import { reducer,initialState } from './state'
-import { store } from './state'
+import { store } from './state' 
 
 const App = () => {
   const [state,dispatch] = useReducer(reducer,initialState)

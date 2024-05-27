@@ -1,11 +1,11 @@
 import { createContext } from "react"
 // Iniial State
 export const initialState = {
-    score : 0,
+    score : -1,
     visiblemodule : "containerHidden",
     visiblerps : "maincontainer",
     visibleresults : "maincontainerHidden",
-    winstatus : "YOU WIN",
+    winstatus : "DRAW",
     userpick : "paper",
     comppick : "rock"
 }
@@ -19,16 +19,12 @@ export const reducer = (state,action) => {
       case "ADD":
         return {
             ...state,
-            score: state.score++
+            score: action.payload
         }
       case "MINUS":
-        if (state.score == 0){
-            return {...state}
-        }else {
-            return {
-                ...state,
-                score:state.score--
-            }
+        return {
+            ...state,
+            score: action.payload
         }
         // Rules Module visibility logic
       case "MODULEVISIBILITY":
@@ -87,8 +83,6 @@ export const reducer = (state,action) => {
             ...state,
             comppick : action.payload
         }
-      default:
-        return {...state}
     }
   }
 
