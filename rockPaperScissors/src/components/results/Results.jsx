@@ -1,18 +1,15 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext} from 'react'
 import results from "./results.module.css"
 import Gamebuttons from '../buttons/Gamebuttons';
 import { store } from '../../state';
 
 const Results = () => {
     const [state,dispatch] = useContext(store)
-    let userpick = state.userpick
-    let comppick = state.comppick
-    let winstatus = state.winstatus
-    let visibleresults = state.visibleresults
+    let {userpick,comppick,visibleresults} = state
 
   return (
     <section className={results[visibleresults]}>
-        <div className={results.topsection}>
+        <div className={results.topsection}> 
             <div className={`${results.leftsidecontainer} ${results.symbolcontainers}`}>
                 <div className={`${results.usersymbol} ${results.symbols}`}>
                     <Gamebuttons symbol={userpick} clickable={false}/>
@@ -26,7 +23,7 @@ const Results = () => {
                 <h3 className={results.subheader}>THE HOUSE PICKED</h3>
             </div>
         </div>
-        <h1 className={results.header}>{winstatus}</h1>
+        <h1 className={results.header}>{state.winstatus}</h1>
     </section>
   )
 }

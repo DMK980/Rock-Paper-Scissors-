@@ -7,7 +7,7 @@
     gap: 2rem;
 }
 .maincontainerHidden{
-    display: none;
+    display: none; 
 }
 .topsection{
     display: flex;

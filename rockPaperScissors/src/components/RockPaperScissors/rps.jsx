@@ -6,11 +6,11 @@ import { store } from '../../state'
 
 const RockPaperScissors = () => {
   const [state,dispatch] = useContext(store)
-  const visiblerps = state.visiblerps
+  const {visiblerps} = state
   return (
     <section className={rockpaperscissors[visiblerps]}>
         {/* triangle svg */}
-        <div className={rockpaperscissors.trianglecontainer}>
+        <div className={rockpaperscissors.trianglecontainer}> 
             <img className={rockpaperscissors.trianglesvg}src={triangle}alt='background image connecting the game buttons'/>
         </div>
         {/* paper svg */} 

@@ -5,9 +5,10 @@ export const initialState = {
     visiblemodule : "containerHidden",
     visiblerps : "maincontainer",
     visibleresults : "maincontainerHidden",
-    winstatus : "DRAW",
-    userpick : "paper",
-    comppick : "rock"
+    winstatus : "",
+    userpick : "",
+    comppick : "",
+    numberofgamesplayed : 0
 }
 
 export const store = createContext()
@@ -68,6 +69,8 @@ export const reducer = (state,action) => {
         // computer selects
       case "COMPPICK":
         return {...state,comppick : action.payload}
+      case "GAMEPLAYED":
+        return {...state,numberofgamesplayed : action.payload}
     }
   }
 

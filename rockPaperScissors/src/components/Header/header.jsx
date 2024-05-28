@@ -4,7 +4,7 @@ import { store } from '../../state'
 
 const Header = () => {
   let [state,dispatch] = useContext(store)
-  let score = state.score;
+  let {score} = state;
 
   return (
     <header className={header.header}>
