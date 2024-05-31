@@ -1,4 +1,3 @@
-
 .containerVisible{
     background-color: white;
     border-radius: 10px;
@@ -12,7 +11,7 @@
     max-width: 425px;
 }
 .containerHidden{
-    visibility: hidden;
+    display: none;
 }
 .image{
     width: 80%;
@@ -37,6 +36,9 @@
 .button:hover,.buttontop:hover{
     opacity: 0.5
 }
+.buttontop{
+    display: none;
+}
 
 @media screen and (min-width:425px) {
     .containerVisible{
@@ -55,6 +57,7 @@
         padding: 0;
     }
     .buttontop{
+        display: block;
         border: none;
         background-color: transparent;
         font-weight: 500;

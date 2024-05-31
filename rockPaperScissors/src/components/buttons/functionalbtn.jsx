@@ -2,32 +2,26 @@ import React, { useContext} from 'react'
 import functionalbtn from "./functionalbtn.module.css"
 import { store } from '../../state'
 
-const Functionalbtn = ({text, backgroundcolor,color,alignself,fontWeight}) => {
+const Functionalbtn = ({type}) => {
 
     const [state,dispatch] = useContext(store)
-    const styles = {
-        backgroundColor : backgroundcolor ? backgroundcolor : "transparent",
-        color : color ? color : "white",
-        alignSelf : alignself ? alignself : "" ,
-        fontWeight: fontWeight ? fontWeight : ""
-    }
+    const inlinetext = type == "rules" ? "RULES" : "PLAY AGAIN"
+    
     const clicked = ()=>{
-      if (text == "RULES"){
-        dispatch({type:"MODULEVISIBILITY"})
-      }
-      if (text == "PLAY AGAIN"){
+
+      type == "rules" ? dispatch({type:"MODULEVISIBILITY"}):"";
+      if (type == "play-again"){
         dispatch({type:"RPSVISIBILITY"})
         dispatch({type:"RESULTSVISIBILITY"})
       }
     }
   return ( 
     <button type="button"
-            className={functionalbtn.button} 
-            style={styles}
+            className={functionalbtn[type]}
             onClick={clicked}
-            aria-label={`${text} button`}
+            aria-label={`${type} button`}
     >
-        {text}
+        {inlinetext}
     </button>
   )
 }

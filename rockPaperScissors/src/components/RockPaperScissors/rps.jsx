@@ -13,8 +13,8 @@ const RockPaperScissors = () => {
         <div className={rockpaperscissors.trianglecontainer}> 
             <img className={rockpaperscissors.trianglesvg}src={triangle}alt='background image connecting the game buttons'/>
         </div>
-        {/* paper svg */} 
-        <Gamebuttons symbol="paper" bgcolor="lightgrey"/>
+        {/* paper svg */}
+        <Gamebuttons symbol="paper"/>
         {/* rock svg */}
         <Gamebuttons symbol="rock"/>
         {/* scissors svg */}

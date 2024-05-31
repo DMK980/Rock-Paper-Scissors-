@@ -5,14 +5,13 @@ import rocksvg from "../../assets/images/icon-rock.svg"
 import scissorssvg from "../../assets/images/icon-scissors.svg"
 import { store } from '../../state'
 
-const Gamebuttons = ({symbol,clickable = true}) => {
+const Gamebuttons = ({symbol,clickable = true,visibilitycss}) => {
 
   const [state,dispatch] = useContext(store)
   let {userpick,comppick,score,numberofgamesplayed} = state
 
   // logic to make component reusable across the application
   const selection = symbol == "paper" ? papersvg : symbol == "rock" ? rocksvg : scissorssvg;
-
   // main game logic
   const clicked = ()=>{
     if (clickable){
@@ -51,14 +50,14 @@ const Gamebuttons = ({symbol,clickable = true}) => {
   
   return (
     <button type="button"
-            className={`${gamebuttons[symbol]} ${gamebuttons.btncontainer}`}
+            className={`${gamebuttons[symbol]} ${gamebuttons.btncontainer} ${gamebuttons[visibilitycss]}`}
             onClick={clicked}
             aria-label={`button to select ${symbol}`}
     >
         <img className={`${gamebuttons[`${symbol}svg`]} ${gamebuttons.svg}`}
              src={selection} 
              alt={`image of a ${symbol}`}
-        />
+        /> 
     </button>
   ) 
 }

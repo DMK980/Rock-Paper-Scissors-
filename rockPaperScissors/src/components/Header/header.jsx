@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header className={header.header}>
-        <h1 className={header.textheading}>ROCK<br></br>PAPER<br></br>SCISSORS</h1>
+        <h1 className={header.textheading}aria-label='main heading'>ROCK<br></br>PAPER<br></br>SCISSORS</h1>
         <section className={header.score}>
             <h4 className={header.scoreheader}>SCORE</h4>
             <h2 className={header.scorenumber}>{score}</h2>

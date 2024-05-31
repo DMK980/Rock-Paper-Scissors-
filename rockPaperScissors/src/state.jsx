@@ -71,6 +71,8 @@ export const reducer = (state,action) => {
         return {...state,comppick : action.payload}
       case "GAMEPLAYED":
         return {...state,numberofgamesplayed : action.payload}
+      case "SETWINNER":
+        return {...state,winner : action.payload}
     }
   }
 

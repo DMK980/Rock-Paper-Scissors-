@@ -1,14 +1,14 @@
 /* Mobile first approach */
 .header{
     border: 2px solid var(--Header-Outline);
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 0.85rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 700px;
     min-width: 200px;
-    width: 80%;
+    width: 100%;
     font-size: 0.75rem;
     margin-top: 2rem;
 }

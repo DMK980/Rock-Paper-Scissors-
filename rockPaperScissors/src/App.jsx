@@ -10,7 +10,7 @@ import Rules from './components/rules/Rules'
 import Results from './components/results/Results'
 // state
 import { reducer,initialState } from './state'
-import { store } from './state' 
+import { store } from './state'
 
 const App = () => {
   const [state,dispatch] = useReducer(reducer,initialState)
@@ -20,14 +20,7 @@ const App = () => {
         <Header/>
         <RockPaperScissors/>
         <Results/>
-        <Functionalbtn 
-          text="PLAY AGAIN"
-          backgroundcolor="white"
-          color="hsl(229, 25%, 31%)"
-          alignself="center"
-          fontWeight="700"
-        />
-        <Functionalbtn text="RULES"/>
+        <Functionalbtn type="rules"/>
         <Rules/>
       </store.Provider>
     </main>
