@@ -8,7 +8,7 @@ const Results = () => {
     const [state,dispatch] = useContext(store)
     let {userpick,comppick,visibleresults,winstatus} = state
     let userwinner =  winstatus == "YOU WIN" ? "winner":"notset";
-    let compwinner = winstatus == "YOU LOSE" ? "winner" :"notset";
+    let compwinner = winstatus == "YOU LOSE" ? "compwinner" :"notset";
   return (
     <section className={results[visibleresults]}> 
         <div className={`${results.leftsidecontainer} ${results.symbolcontainers}`}>
